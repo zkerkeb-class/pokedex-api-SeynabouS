@@ -54,6 +54,7 @@ app.get("/api/pokemons", (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 
 // GET - Récupérer un Pokémon par ID
 app.get("/api/pokemons/:id", (req, res) => {
@@ -117,6 +118,8 @@ app.delete("/api/pokemons/:id", (req, res) => {
   res.status(200).json({ status: 200, data: deletedPokemon });
 });
 
+=======
+>>>>>>> 2250eef3d7c6bfcc7b820c81c934e4855c6325c6
 app.get("/", (req, res) => {
   res.send("bienvenue sur l'API Pokémon");
 });
@@ -125,4 +128,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2250eef3d7c6bfcc7b820c81c934e4855c6325c6
