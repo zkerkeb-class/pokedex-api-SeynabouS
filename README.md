@@ -1,75 +1,117 @@
-## Concepts à Comprendre
-1. REST API
-   - Méthodes HTTP (GET, POST, PUT, DELETE)
-   - Codes de statut HTTP
-   - Structure des URL
-   - CORS (Cross-Origin Resource Sharing)
+# Pokemon Trainer - Seynabou
 
-2. Express.js
-   - Routing
-   - Middleware
-   - Gestion des requêtes et réponses
-   - Configuration CORS
+Bienvenue sur mon projet **Pokédex Pokémon** réalisé dans le cadre du cours de **Technologie Web** à l'**ECE Paris**.
 
-3. Sécurité de Base
-   - Validation des entrées
-   - Authentification
-   - Gestion des erreurs
-   - Politiques CORS
+---
 
-## Configuration CORS
-CORS (Cross-Origin Resource Sharing) est un mécanisme qui permet à de nombreuses ressources (polices, JavaScript, etc.) d'une page web d'être demandées à partir d'un autre domaine que celui du domaine d'origine.
+## 🚀 Description du projet
 
-Pour utiliser l'API depuis un autre domaine :
-1. L'API est configurée avec CORS activé
-2. Toutes les origines sont autorisées dans cette version de développement
-3. En production, vous devriez restreindre les origines autorisées
+Ce projet est une application Web de Pokédex avec authentification.  
+Il est composé de deux parties :
+- Un **backend** sous **Node.js / Express / MongoDB** (API REST sécurisée avec JWT)
+- Un **frontend** en **React.js** (interface utilisateur rapide et responsive)
 
-Pour une configuration plus restrictive, vous pouvez modifier les options CORS :
+Fonctionnalités principales :
+- 🔒 Inscription et Connexion sécurisées
+- 📃 Liste de tous les Pokémon
+- 🔍 Filtres par nom, types, statistiques
+- ➕ Ajout d'un Pokémon (authentification obligatoire)
+- 🗑️ Suppression d'un Pokémon (authentification obligatoire)
+- 📖 Documentation Swagger pour l'API backend
 
-```javascript
-app.use(cors({
-  origin: 'https://votre-domaine.com',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+---
+
+## ⚙️ Instructions d'installation
+
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/zkerkeb-class/pokedex-api-SeynabouS.git
+git clone https://github.com/zkerkeb-class/pokedex-frontend-SeynabouS.git
 ```
 
-## Ressources Additionnelles
-- [Documentation Express.js](https://expressjs.com/fr/)
-- [Guide des Status HTTP](https://developer.mozilla.org/fr/docs/Web/HTTP/Status)
-- [REST API Best Practices](https://restfulapi.net/)
+---
 
-## Support
-Pour toute question ou problème :
-1. Vérifiez la documentation
-2. Consultez les messages d'erreur dans la console
-3. Demandez de l'aide à votre formateur
+### 2. Installer les dépendances
 
-## Prochaines Étapes
-- Ajout d'une base de données (MongoDB)
-- Implémentation de tests automatisés
-- Déploiement de l'API
-- Documentation avec Swagger
+**Backend :**
 
-## Gestion des Fichiers Statiques
-Le serveur expose le dossier `assets` pour servir les images des Pokémon. Les images sont accessibles via l'URL :
-```
-http://localhost:3000/assets/pokemons/{id}.png
+```bash
+cd pokedex-api-SeynabouS
+npm install
 ```
 
-Par exemple, pour accéder à l'image de Pikachu (ID: 25) :
-```
-http://localhost:3000/assets/pokemons/25.png
+**Frontend :**
+
+```bash
+cd pokedex-frontend-SeynabouS
+npm install
 ```
 
-### Configuration
-Le middleware `express.static` est utilisé pour servir les fichiers statiques :
-```javascript
-app.use('/assets', express.static(path.join(__dirname, '../assets')));
+---
+
+### 3. Créer le fichier `.env`
+
+Dans le dossier **backend**, créer un fichier `.env` :
+
+```dotenv
+JWT_SECRET=your_secret_key
+MONGO_URI=mongodb://127.0.0.1:27017/pokemons-db
+PORT=3000
 ```
 
-### Sécurité
-- Seuls les fichiers du dossier `assets` sont exposés
-- Les autres dossiers du projet restent inaccessibles
-- En production, considérez l'utilisation d'un CDN pour les fichiers statiques
+---
+
+### 4. Lancer le projet
+
+**Backend :**
+
+```bash
+npm start
+```
+
+**Frontend :**
+
+```bash
+npm run dev
+```
+
+---
+
+## 🧹 Documentation de l'API
+
+La documentation Swagger est disponible à l'adresse :
+
+```
+http://localhost:3000/api-docs
+```
+
+Elle contient :
+- Les routes d'authentification (`/api/register`, `/api/login`)
+- Les routes Pokémon (`/api/pokemons`, `/api/pokemons/:id`)
+- Les détails des requêtes et réponses
+
+---
+
+## 🎥 Lien vers la démonstration vidéo
+
+👉 [Lien vers la vidéo YouTube ici](https://www.youtube.com/watch?v=AcGhi0nzOQ0) 
+
+---
+
+## ✨ Points techniques importants
+
+- Utilisation de **JWT** pour sécuriser les routes
+- Gestion des erreurs serveur / client
+- Formulaires protégés côté client React
+- Utilisation de **Swagger** pour la documentation
+- Application Responsive et rapide avec **Vite** + **React**
+
+---
+
+## 👩‍💻 Réalisé par
+
+**Seynabou S.** - Étudiante ECE 2024-2025
+
+---
+

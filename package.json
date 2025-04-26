@@ -1,4 +1,28 @@
 {
+<<<<<<< HEAD
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+=======
   "name": "pokemon-api-workshop",
   "version": "1.0.0",
   "description": "Atelier API REST pour étudiants en cybersécurité",
@@ -16,5 +40,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
+>>>>>>> 2250eef3d7c6bfcc7b820c81c934e4855c6325c6
   }
 }

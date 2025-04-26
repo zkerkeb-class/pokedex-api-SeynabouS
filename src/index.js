@@ -54,6 +54,72 @@ app.get("/api/pokemons", (req, res) => {
   });
 });
 
+<<<<<<< HEAD
+
+// GET - Récupérer un Pokémon par ID
+app.get("/api/pokemons/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const pokemon = pokemonsList.find(p => p.id === id);
+
+  if (!pokemon) {
+    return res.status(404).json({ status: 404, message: "Pokemon non trouvé" });
+  }
+
+  res.status(200).json({ status: 200, data: pokemon });
+});
+
+// POST - Ajouter un nouveau Pokémon
+app.post("/api/pokemons", (req, res) => {
+  const { id, name, type, base, image } = req.body;
+
+  if (!id || !name || !type || !base || !image) {
+    return res.status(400).json({ status: 400, message: "Données invalides" });
+  }
+
+  if (pokemonsList.some(p => p.id === id)) {
+    return res.status(409).json({ status: 409, message: "ID déjà existant" });
+  }
+
+  const newPokemon = { id, name, type, base, image };
+  pokemonsList.push(newPokemon);
+  fs.writeFileSync(dataPath, JSON.stringify(pokemonsList, null, 2));
+
+  res.status(201).json({ status: 201, data: newPokemon });
+});
+
+// PUT - Mettre à jour un Pokémon
+app.put("/api/pokemons/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = pokemonsList.findIndex(p => p.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ status: 404, message: "Pokemon non trouvé" });
+  }
+
+  const { name, type, base, image } = req.body;
+  pokemonsList[index] = { ...pokemonsList[index], name, type, base, image };
+  fs.writeFileSync(dataPath, JSON.stringify(pokemonsList, null, 2));
+
+  res.status(200).json({ status: 200, data: pokemonsList[index] });
+});
+
+// DELETE - Supprimer un Pokémon
+app.delete("/api/pokemons/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = pokemonsList.findIndex(p => p.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ status: 404, message: "Pokemon non trouvé" });
+  }
+
+  const deletedPokemon = pokemonsList.splice(index, 1);
+  fs.writeFileSync(dataPath, JSON.stringify(pokemonsList, null, 2));
+
+  res.status(200).json({ status: 200, data: deletedPokemon });
+});
+
+=======
+>>>>>>> 2250eef3d7c6bfcc7b820c81c934e4855c6325c6
 app.get("/", (req, res) => {
   res.send("bienvenue sur l'API Pokémon");
 });
@@ -62,3 +128,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2250eef3d7c6bfcc7b820c81c934e4855c6325c6
